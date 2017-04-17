@@ -1,0 +1,12 @@
+<svg width="40" height="36" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <title>Layer 1</title>
+    <ellipse id="svg_3" cy="381" cx="791" opacity="0.5" stroke-width="5" stroke="#000000" fill="#00ff00"/>
+    <ellipse id="svg_4" cy="404" cx="907" opacity="0.5" stroke-width="5" stroke="#000000" fill="#00ff00"/>
+    <ellipse id="svg_5" cy="354" cx="750" opacity="0.5" stroke-width="5" stroke="#000000" fill="#00ff00"/>
+    <ellipse id="svg_6" cy="449" cx="1152" opacity="0.5" stroke-width="5" stroke="#000000" fill="#00ff00"/>
+    <ellipse id="svg_7" cy="394" cx="909" opacity="0.5" stroke-width="5" stroke="#000000" fill="#00ff00"/>
+    <path id="svg_8" d="m866,487" opacity="0.5" stroke-width="5" stroke="#000000" fill="#00ff00"/>
+    <text font-style="italic" fill="#e91e63" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="20" y="22.5" id="svg_1" font-size="24" font-family="Serif" text-anchor="middle" xml:space="preserve" font-weight="bold">Kisan</text>
+  </g>
+</svg>

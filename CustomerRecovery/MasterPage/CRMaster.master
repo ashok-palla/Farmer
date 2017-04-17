@@ -1,0 +1,727 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CRMaster.master.cs" Inherits="MasterPage.MasterPage_CRMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="icon" href="Images/Icon/favicon.ico" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ISPCRM" />
+    <meta name="author" content="Atharvana" />
+    <title>Kisan</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="../APPRequires/Bootstrap/js/bootstrap.min.js"></script>
+    <link href="../APPRequires/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../APPRequires/CascadingStyleSheet/CRMaster.css" rel="stylesheet" />
+    <link href="../APPRequires/CascadingStyleSheet/Master.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="CRMasterHead" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="CRMainForm" runat="server"></form>
+
+    <header class="devsite-top-section devsite-header-no-tabs" style="position: fixed;">
+        <div class="devsite-top-logo-row-wrapper-wrapper" style="position: relative;">
+            <div class="devsite-top-logo-row-wrapper">
+                <div class="devsite-top-logo-row devsite-full-site-width">
+                    <a class="devsite-logo gc-analytics-event" href="../Masters/UserDetails.aspx" data-category="Site-Wide Custom Events" data-label="Site logo" style="text-decoration: none">
+                        <%--<img src="../APPRequires/Images/CR.svg" alt="Kisan icon" class="devsite-logo-icon" />--%>
+                    </a>
+                    <a><span class="glyphicon glyphicon-align-justify" id="SideMenuToggleBtn"></span></a>
+                    <a class="devsite-avatar-wrapper gc-analytics-event dropdown-toggle" data-category="Site-Wide Custom Events" data-label="User avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="devsite-avatar" src="../APPRequires/Images/cr.png" /></a>
+                    <ul class="dropdown-menu" style="right: 20px; left: auto">
+                        <li class="disabled"><a href="#" style="cursor: none !important">
+                            <asp:Label runat="server" ID="LBL_UserName"></asp:Label></a></li>
+                        <li onclick="ChangePassword();$('.page-header').css({ 'left': 'auto', 'top': '56px', 'z-index': '0' });"><a onclick="ChangePassword();$('.page-header').css({ 'left': 'auto', 'top': '56px', 'z-index': '0' });">Change Password</a></li>
+                        
+                        <li role="separator" class="divider"></li>
+                        <li onclick="window.location='?userlogout=1'"><a href="?userlogout=1">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="SideMenu nav nav-stacked">
+        <ul id="SideMenuFirstUL" style="font-weight: 600">
+            <li><a data-toggle="collapse" data-parent="#SideMenuFirstUL" href="#MANU1">Masters <span class="glyphicon glyphicon-chevron-down" style="padding-top: 5px"></span></a>
+                <ul id="MANU1" class="collapse">
+                    <%--<li onclick="window.location='../Masters/DashBoard.aspx'"><a href="../Masters/DashBoard.aspx">Dash Board</a></li>--%>
+                    <li onclick="window.location='../Masters/Farmer.aspx'"><a href="../Masters/Farmer.aspx">Farmer Details </a></li>
+                    <%--<li onclick="window.location='../Masters/BankDetails.aspx'"><a href="../Masters/BankDetails.aspx">Bank Details </a></li>
+                    <li onclick="window.location='../Masters/LoanAccountDetails.aspx'"><a href="../Masters/LoanAccountDetails.aspx">Loan Account Details </a></li>
+                    <li onclick="window.location='../Masters/Target.aspx'"><a href="../Masters/Target.aspx">Target Details</a></li>
+                    <li id="LI_EXCELLUPLOAD" onclick="window.location='../Reports/UploadData.aspx'"><a href="../Reports/UploadData.aspx">Excel Upload </a></li>--%>
+                </ul>
+            </li>
+            <%--<li><a data-toggle="collapse" data-parent="#SideMenuFirstUL" href="#MANU2">Daily Transactions <span class="glyphicon glyphicon-chevron-down" style="padding-top: 5px"></span></a>
+                <ul id="MANU2" class="collapse">
+                    <li onclick="window.location='../DailyTransactions/NPADetails1.aspx'"><a href="../DailyTransactions/NPADetails1.aspx">NPA Details </a></li>
+                    <li><a href="../DailyTransactions/BankVisitDetails.aspx">Bank Visit Details </a></li>
+                    <li onclick="window.location='../DailyTransactions/ExecutiveWiseVisitDetails.aspx'"><a href="../DailyTransactions/ExecutiveWiseVisitDetails.aspx">Records Of Visit </a></li>
+                    <li onclick="window.location='../DailyTransactions/RecoveryBillDetails.aspx'"><a href="../DailyTransactions/RecoveryBillDetails.aspx">Recovery Details </a></li>
+                    <li onclick="window.location='../DailyTransactions/RecoveryStatement.aspx'"><a href="../DailyTransactions/RecoveryStatement.aspx">Bank Billing Details</a></li>
+                </ul>
+            </li>--%>
+          <%--  <li><a data-toggle="collapse" data-parent="#SideMenuFirstUL" href="#MANU3">Reports <span class="glyphicon glyphicon-chevron-down" style="padding-top: 5px"></span></a>
+                <ul id="MANU3" class="collapse">
+                    <li onclick="window.location='../Reports/DailyReport.aspx'"><a href="../Reports/DailyReport.aspx">Daily report </a></li>
+                    <li onclick="window.location='../Reports/ExecutiveReport.aspx'"><a href="../Reports/ExecutiveReport.aspx">Executive Report</a></li>
+                </ul>
+            </li>--%>
+        </ul>
+    </div>
+
+    <div class="spinner" style="top: 65px; right: 0; display: block; position: fixed; z-index: 2147483647;">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.js" type="text/javascript"></script>
+    <link href="../APPRequires/CascadingStyleSheet/chosen.css" rel="stylesheet" />
+    <script src="../APPRequires/JavaScript/chosen.jquery.js"></script>
+    <div class="WorkingArea">
+        <asp:ContentPlaceHolder ID="CRMasterBody" runat="server"></asp:ContentPlaceHolder>
+    </div>
+
+    <div id="AlertMessage" style="position: fixed; top: 0; left: 0; right: 0; z-index: 2147483647; display: none; -ms-opacity: 0.9; opacity: 0.9">
+        <strong></strong>&nbsp;&nbsp;<span></span><span class="glyphicon glyphicon-remove pull-right" style="cursor: pointer" onclick="$('#AlertMessage').hide();"></span>
+    </div>
+
+    <div id="AtharvanaWebSite" style="position: fixed; bottom: 0; right: 0">
+        <a href="http://www.atharvana.in/" target="_blank">
+            <img src="../APPRequires/Images/powered-Atharvana.png" /></a>
+    </div>
+
+    <form id="ChangePasswordForm" class="form-horizontal" method="post">
+
+        <div id="ChangePasswordFormModal" class="modal fade bs-example-modal-sm" tabindex="-1" style="top: 15%; overflow: hidden; overflow-y: scroll">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="-ms-border-top-left-radius: 10px; border-top-left-radius: 10px; -ms-border-top-right-radius: 10px; border-top-right-radius: 10px">
+                    <div class="modal-header" style="padding: 10px; height: 40px; color: white; background-color: #00a0af; -ms-border-top-left-radius: 5px; border-top-left-radius: 5px; -ms-border-top-right-radius: 5px; border-top-right-radius: 5px">Change Password</div>
+                    <div class="modal-body container-fluid">
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; text-align: right">User Name </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <input type="text" class="form-control input-sm form-control col-xs-4 col-md-4 col-lg-2" name="LoginUserName" id="LoginUserName" style="width: 100%" disabled />
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; text-align: right"><span style="color: red">*</span>Old Password </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <input type="password" class="form-control input-sm form-control col-xs-4 col-md-4 col-lg-2" name="OldPassword" id="OldPassword" style="width: 100%" />
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; text-align: right"><span style="color: red">*</span>New Password </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <input type="password" class="form-control input-sm form-control col-xs-4 col-md-4 col-lg-2" name="NewPassword" id="NewPassword" style="width: 100%" />
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; text-align: right"><span style="color: red">*</span>Retype New Password </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <input type="password" class="form-control input-sm form-control col-xs-4 col-md-4 col-lg-2" name="RetypePassword" id="RetypePassword" style="width: 100%" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row" style="padding-left: 20px">
+                        Asterisk(<span style="color: Red">*</span>) Fields are Required
+                    </div>
+                    <div class="modal-footer" style="padding: 5px">
+                        <button type="submit" class="btn btn-default Save" style="margin-top: 2px"><span class="glyphicon glyphicon-ok"></span>&nbsp;Save</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-default Cancel"><span class="glyphicon glyphicon-remove"></span>&nbsp;Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="AddCityModalFrom" class="form-horizontal" method="post">
+        <div id="AddCityModal" class="modal fade bs-example-modal-sm" tabindex="-1">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" style="-ms-border-top-left-radius: 10px; border-top-left-radius: 10px; -ms-border-top-right-radius: 10px; border-top-right-radius: 10px">
+                    <div class="modal-header" style="padding: 10px; height: 40px; color: white; background-color: #00a0af; -ms-border-top-left-radius: 5px; border-top-left-radius: 5px; -ms-border-top-right-radius: 5px; border-top-right-radius: 5px; text-align: center">Add City</div>
+                    <div class="modal-body container-fluid">
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <div class="col-lg-12" style="padding-bottom: 1%">
+                                <input type="text" class="form-control input-sm form-control col-xs-4 col-md-4 col-lg-2" name="AddCityName" id="AddCityName" style="width: 100%; text-transform: uppercase" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="padding: 5px">
+                        <button type="submit" class="btn btn-default Save" style="margin-top: 2px"><span class="glyphicon glyphicon-ok"></span>&nbsp;Save</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-default Cancel"><span class="glyphicon glyphicon-remove"></span>&nbsp;Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="UnderDev" class="modal fade bs-example-modal-sm" tabindex="-1" style="top: 15%">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="-ms-border-top-left-radius: 10px; border-top-left-radius: 10px; -ms-border-top-right-radius: 10px; border-top-right-radius: 10px">
+                <div class="modal-body container-fluid">
+                    <h3 style="text-align: center">Under Development</h3>
+                </div>
+                <div class="modal-footer" style="padding: 5px">
+                    <button type="button" data-dismiss="modal" class="btn btn-default Cancel"><span class="glyphicon glyphicon-remove"></span>&nbsp;Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="DailyReportForm" class="form-horizontal" method="post">
+        <div id="DailyReportModal" class="modal fade bs-example-modal-sm" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="-ms-border-top-left-radius: 10px; border-top-left-radius: 10px; -ms-border-top-right-radius: 10px; border-top-right-radius: 10px">
+                    <div class="modal-header" style="padding: 10px; height: 40px; color: white; background-color: #00a0af; -ms-border-top-left-radius: 5px; border-top-left-radius: 5px; -ms-border-top-right-radius: 5px; border-top-right-radius: 5px; text-align: center">Daily Report</div>
+                    <div class="modal-body container-fluid">
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; padding-top: 5px; text-align: right">Eexecutive </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <select class="form-control form-control col-xs-4 col-md-4 col-lg-2 input-sm " name="DROP_DOWN_EXECUTIVE_FOR_REPORT" id="DROP_DOWN_EXECUTIVE_FOR_REPORT" style="width: 100%"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; padding-top: 5px; text-align: right">Bank </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <select class="form-control form-control col-xs-4 col-md-4 col-lg-2 input-sm " name="DROP_DOWN_BANK_FOR_REPORT" id="DROP_DOWN_BANK_FOR_REPORT" style="width: 100%"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; padding-top: 5px; text-align: right">Branch </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <select class="form-control form-control col-xs-4 col-md-4 col-lg-2 input-sm " name="DROP_DOWN_BRANCH_FOR_REPORT" id="DROP_DOWN_BRANCH_FOR_REPORT" style="width: 100%"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; padding-top: 5px; text-align: right">NPA </label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <select class="form-control form-control col-xs-4 col-md-4 col-lg-2 input-sm " name="DROP_DOWN_NPA_FOR_REPORT" id="DROP_DOWN_NPA_FOR_REPORT" style="width: 100%"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; text-align: right">From Date(dd/mm/yyYY)</label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <input type="tel" class="form-control input-sm form-control col-xs-4 col-md-4 col-lg-2" name="TEXT_BOX_FROMDATE_FOR_REPORT" id="TEXT_BOX_FROMDATE_FOR_REPORT" style="width: 100%" />
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-sm" style="margin-bottom: 0">
+                            <label class="col-lg-4 control-label" style="font-weight: normal; padding-right: 1%; text-align: right">To Date(dd/mm/yyYY)</label>
+                            <div class="col-lg-6" style="padding-bottom: 1%">
+                                <input type="tel" class="form-control input-sm form-control col-xs-4 col-md-4 col-lg-2" name="TEXT_BOX_TODATE_FOR_REPORT" id="TEXT_BOX_TODATE_FOR_REPORT" style="width: 100%" />
+                            </div>
+                        </div>
+
+                        <div class="input-group input-group-sm col-lg-12 col-md-12" style="padding: 0; padding-top: 10px">
+                            <select class="form-control" id="Report" style="z-index: 0">
+                                <option selected="selected" value="1">XLS</option>
+                                <option value="2">XLSX</option>
+                                <option value="3">PDF</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <input type="button" id="ExportMethod" class="btn btn-default" value="Export" onclick="ExportMethod();" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="padding: 5px">
+                        <button type="submit" class="btn btn-default Save" style="margin-top: 2px"><span class="glyphicon glyphicon-ok"></span>&nbsp;Save</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-default Cancel"><span class="glyphicon glyphicon-remove"></span>&nbsp;Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+<script>
+    //alert message slideup & slidedown timing in micro seconds//Start
+    var InTimeinMicSec = parseInt(1000);
+    var DelayTimeInMicSec = parseInt(3000);
+    var OutTimeInMicSec = parseInt(2000);
+    var CityStatus = new Array();
+    //alert message slideup & slidedown timing in micro seconds//End
+    var CityID = 0;
+    jQuery(function () {
+        $('#userManual').click(function (e) {
+            e.preventDefault();  //stop the browser from following
+            window.location.href = '../Default.aspx?UserManual=1';
+        });
+        $('#SideMenuToggleBtn').on('click', function () {
+            $('.SideMenu').toggle();
+        });
+        if ('<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' == 2) {
+            $("#LI_USERDETAILS, #LI_EXCELLUPLOAD").remove();
+        }
+        $("#AddCityName").on('keyup keypress paste change', function () {
+            //$("#AddCityName").val($("#AddCityName").val().toUpperCase());
+            $('#AddCityModalFrom').bootstrapValidator('revalidateField', $("#AddCityName"));
+        });
+        $('.modal').on('show.bs.modal', function () {
+            $(".page-header").css({ "left": "0", "top": "0", "z-index": "10007" });
+            $(".spinner").css('top', '5px');
+        });
+        $('.modal').on('hidden.bs.modal', function (e) {
+            if (e.target.id != "AddCityModal") {
+                $(".page-header").css({ "left": "auto", "top": "56px", "z-index": "0" });
+                $(".spinner").css('top', '65px');
+            }
+        });
+        $("#AlertMessage").mouseenter(function () { $("#AlertMessage").finish().show(); });
+        $("#AlertMessage").mouseleave(function () { $("#AlertMessage").finish().delay(DelayTimeInMicSec).slideUp(OutTimeInMicSec); });
+
+        $('#AddCityModal').on('hidden.bs.modal', function () {
+            CityID = 0;
+            $("#AddCityModalFrom").bootstrapValidator('resetForm', true);
+        });
+        $("#CityAddPopOver").click(function () {
+            CITY_GET($("#City option:selected").val());
+            if ('<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '2' && '<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '1') {
+                $("#AddCityModal").modal().on('shown.bs.modal', function () {
+                    $(this).find('#AddCityName').focus();
+                });
+            }
+        });
+        $("#CityEditPopOver").click(function () {
+            CITY_GET($("#City option:selected").val());
+            if ('<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '2' && '<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '1') {
+                if ($("#City option:selected").val() != "-1") {
+                    CityID = $("#City option:selected").val();
+                    $('#AddCityName').val($("#City option:selected").text());
+                    $("#AddCityModal").modal().on('shown.bs.modal', function () {
+                        $(this).find('#AddCityName').focus();
+                    });
+                }
+            }
+        });
+    });
+    function CITY_GET(ID) {
+        CityStatus = [];
+        $.ajax({
+            type: "POST",
+            url: "../Default.aspx/CITY_GET",
+            data: '{}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                window.status = null;
+                var Rows = "";
+                $("#City").empty();
+                var xmlDoc = $.parseXML(data.d);
+                var xml = $(xmlDoc);
+                var ExecutiveDropDownT = xml.find("Table");
+                if (ExecutiveDropDownT.length > 0) {
+                    $("#City").append('<option value="-1">-- Select --</option>');
+                    $.each(ExecutiveDropDownT, function () {
+                        if ('<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '3' && '<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '0' && '<%=Convert.ToInt32(Request.Cookies["CityID"].Value)%>' != "") {
+                            if ($(this).find("CityID").text() == ('<%=Convert.ToInt32(Request.Cookies["CityID"].Value)%>').toString()) {
+                                Rows += '<option value="' + $(this).find("CityID").text() + '">' + $(this).find("City_Name").text() + '</option>';
+                                CityStatus.push($(this).find("City_Name").text());
+                            }
+                        }
+                        else {
+                            Rows += '<option value="' + $(this).find("CityID").text() + '">' + $(this).find("City_Name").text() + '</option>';
+                            CityStatus.push($(this).find("City_Name").text());
+                        }
+                    });
+                    $("#City").append(Rows);
+                    if ('<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '0' && '<%=Convert.ToInt32(Request.Cookies["CityID"].Value)%>' != "") {
+                        $("#City").val(<%=Convert.ToInt32(Request.Cookies["CityID"].Value)%>);
+                        //$("#City option:contains(" + $(this).find("CityID").text() + ")").attr('selected', 'selected');
+                        $("#City,#CityAddPopOver, #CityEditPopOver").prop('disabled', true);
+                    }
+                    var DIR = window.location.pathname.split('/');
+                    for (var i = 0; i < DIR.length; i++) {
+                        if (DIR[i].indexOf("aspx") > -1 && DIR[i] == "UserDetails.aspx") {
+                            if ('<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' != '3' || '<%=Convert.ToInt32(Request.Cookies["UserRole"].Value)%>' == '0') {
+                                $("#City,#CityAddPopOver, #CityEditPopOver").prop('disabled', false);
+                            }
+                            else {
+                                $("#City,#CityAddPopOver, #CityEditPopOver").prop('disabled', true);
+                            }
+                        }
+                    }
+                    if (ID != "" && ID != undefined) {
+                        if ($.isNumeric(ID)) {
+                            $("#City").val(ID);
+                        }
+                        else {
+                            $("#City option:contains(" + ID + ")").attr('selected', 'selected');
+                            $('#City').parent().parent().parent().parent().parent().parent().parent().parent().bootstrapValidator('revalidateField', $('#City'));
+                        }
+                    }
+                }
+                else {
+                    $("#City").append('<option value="-1">-- No Data --</option>');
+                }
+            }
+        });
+    }
+</script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="../APPRequires/JavaScript/PaggerAndNav.js"></script>
+<script src="../APPRequires/JavaScript/ControlValidation.js"></script>
+<script src="../APPRequires/JavaScript/respond.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $('#AddCityModalFrom').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            excluded: ':disabled',
+            fields: {
+                AddCityName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter City Name'
+                        },
+                        callback: {
+                            callback: function (value) {
+                                if (value.length == 0) {
+                                    return {
+                                        valid: false,
+                                        message: 'City name is required'
+                                    };
+                                }
+                                else if (CityStatus.length > 0) {
+                                    for (var j in CityStatus)
+                                        if (CityStatus.hasOwnProperty(j))
+                                            if (CityStatus[j] == value.toUpperCase()) {
+                                                return {
+                                                    valid: false,
+                                                    message: 'City name is already Exists'
+                                                };
+                                            }
+                                }
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }).on('success.form.bv', function (e) {
+            e.preventDefault();
+            var obj = {};
+            obj.CityID = CityID;
+            obj.AddCityName = $('#AddCityName').val();
+            $.ajax({
+                type: "POST",
+                url: "../Default.aspx/AddNewCity",
+                data: JSON.stringify(obj),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.d == "") {
+                        CITY_GET($('#AddCityName').val());
+                        $("#AddCityModal").modal('hide');
+                        $("#AlertMessage").finish().removeClass().addClass('alert alert-success').slideDown(0).delay(DelayTimeInMicSec).slideUp(OutTimeInMicSec).children('strong', this).empty().text('Success!').parent().children('span:first', this).empty().html('Succesfully City Saved.');
+                    }
+                    else {
+                        alert(data.d);
+                    }
+                }
+            });
+        });
+        $('#ChangePasswordForm').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            excluded: ':disabled',
+            fields: {
+                OldPassword: {
+                    validators: {
+                        callback: {
+                            callback: function (value, validator) {
+                                var Password = validator.getFieldElements('NewPassword');
+                                if (value.length == 0) {
+                                    return {
+                                        valid: false,
+                                        message: 'Old password is required'
+                                    };
+                                }
+                                else if (Password[0].value != value && Password[0].value != "") {
+                                    validator.updateStatus('NewPassword', validator.STATUS_VALID, 'callback');
+                                }
+                                else if (Password[0].value == value && Password[0].value != "") {
+                                    return {
+                                        valid: false,
+                                        message: 'Old password and new password should not be same'
+                                    };
+                                }
+                                return true;
+                            }
+                        }
+                    }
+                },
+                NewPassword: {
+                    validators: {
+                        callback: {
+                            callback: function (value, validator) {
+                                var OldPassword = validator.getFieldElements('OldPassword');
+                                var RetypePassword = validator.getFieldElements('RetypePassword');
+                                if (value.length == 0) {
+                                    return {
+                                        valid: false,
+                                        message: 'New Password is required'
+                                    };
+                                }
+                                else if (value.length < 6) {
+                                    return {
+                                        valid: false,
+                                        message: 'New password must be 6 characters'
+                                    };
+                                }
+                                else if (value == OldPassword[0].value) {
+                                    return {
+                                        valid: false,
+                                        message: 'Old password and new password should not be same'
+                                    };
+                                }
+                                else if (value != OldPassword[0].value) {
+                                    validator.updateStatus('OldPassword', validator.STATUS_VALID, 'callback');
+                                    if (RetypePassword[0].value != "" && RetypePassword[0].value != value) {
+                                        return {
+                                            valid: false,
+                                            message: 'Password and confirm password must be same'
+                                        };
+                                    }
+                                    else if (RetypePassword[0].value != "" && RetypePassword[0].value != value) {
+                                        validator.updateStatus('RetypePassword', validator.STATUS_VALID, 'callback');
+                                    }
+                                }
+                                return true;
+                            }
+                        }
+                    }
+                },
+                RetypePassword: {
+                    validators: {
+                        callback: {
+                            callback: function (value, validator) {
+                                var OldPassword = validator.getFieldElements('OldPassword');
+                                var Password = validator.getFieldElements('NewPassword');
+                                if (value.length == 0) {
+                                    return {
+                                        valid: false,
+                                        message: 'Retype new password is required'
+                                    };
+                                }
+                                else if (value == OldPassword[0].value) {
+                                    return {
+                                        valid: false,
+                                        message: 'Old password and new password should not be same'
+                                    };
+                                }
+                                else if (value.length < 6) {
+                                    return {
+                                        valid: false,
+                                        message: 'Retype new password must be 6 characters'
+                                    };
+                                }
+                                else if (value != $('#NewPassword').val()) {
+                                    return {
+                                        valid: false,
+                                        message: 'Password and confirm password must be same'
+                                    };
+                                }
+                                else if (Password[0].value == value && Password[0].value != "") {
+                                    validator.updateStatus('NewPassword', validator.STATUS_VALID, 'callback');
+                                }
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }).on('success.form.bv', function () {
+            var obj = {};
+            obj.OldPassword = $('#OldPassword').val();
+            obj.NewPassword = $('#NewPassword').val();
+            $.ajax({
+                type: "POST",
+                url: "../Default.aspx/UserChangePassword",
+                data: JSON.stringify(obj),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $("#AlertMessage").finish().removeClass().addClass('alert alert-success').slideDown(0).delay(DelayTimeInMicSec).slideUp(OutTimeInMicSec).children('strong', this).empty().text('Success!').parent().children('span:first', this).empty().html('Succesfully password changed.');
+                    alert(data.d);
+                    if (data.d == "Successfully Saved New Password") {
+                        window.location.href = '?userlogout=1';
+                    }
+                }
+            });
+        });
+        $("#DROP_DOWN_EXECUTIVE_FOR_REPORT").change(function () {
+            if (typeof window.NPADROPDOWN_FOR_REPORT != 'undefined' && $.isFunction(window.NPADROPDOWN_FOR_REPORT)) {
+                window.NPADROPDOWN_FOR_REPORT();
+            }
+        });
+        $("#DROP_DOWN_BANK_FOR_REPORT").change(function () {
+            if (typeof window.DROP_DOWN_BRANCH_FOR_REPORT != 'undefined' && $.isFunction(window.DROP_DOWN_BRANCH_FOR_REPORT)) {
+                window.DROP_DOWN_BRANCH_FOR_REPORT();
+            }
+        });
+        $("#DROP_DOWN_BRANCH_FOR_REPORT").change(function () {
+            if (typeof window.NPADROPDOWN_FOR_REPORT != 'undefined' && $.isFunction(window.NPADROPDOWN_FOR_REPORT)) {
+                window.NPADROPDOWN_FOR_REPORT();
+            }
+        });
+
+    });
+    function ChangePassword() {
+        $("#LoginUserName").val("<%=Request.Cookies["UserName"].Value%>");
+        $('#ChangePasswordFormModal').modal({ backdrop: 'static', keyboard: false }).on('shown.bs.modal', function () {
+            $(this).find('#OldPassword').focus();
+        });
+    }
+    $(document).ajaxStart(function () {
+        $('.spinner').show();
+    });
+    $(document).ajaxStop(function () {
+        $('.spinner').hide();
+    });
+</script>
+
+<style>
+    .panel-primary {
+        border-color: #00a0af !important;
+    }
+
+    .spinner {
+        /*margin: 100px auto;*/
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+        .spinner > div {
+            background-color: #E91E63;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+            -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            -moz-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            -ms-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            -o-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            animation: sk-stretchdelay 1.2s infinite ease-in-out;
+        }
+
+        .spinner .rect2 {
+            -webkit-animation-delay: -1.1s;
+            -moz-animation-delay: -1.1s;
+            -ms-animation-delay: -1.1s;
+            -o-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .spinner .rect3 {
+            -webkit-animation-delay: -1.0s;
+            -moz-animation-delay: -1.0s;
+            -ms-animation-delay: -1.0s;
+            -o-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        .spinner .rect4 {
+            -webkit-animation-delay: -0.9s;
+            -moz-animation-delay: -0.9s;
+            -ms-animation-delay: -0.9s;
+            -o-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .spinner .rect5 {
+            -webkit-animation-delay: -0.8s;
+            -moz-animation-delay: -0.8s;
+            -ms-animation-delay: -0.8s;
+            -o-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+    @-webkit-keyframes sk-stretchdelay {
+        0%, 40%, 100% {
+            -webkit-transform: scaleY(0.4);
+        }
+
+        20% {
+            -webkit-transform: scaleY(1.0);
+        }
+    }
+
+    @keyframes sk-stretchdelay {
+        0%, 40%, 100% {
+            transform: scaleY(0.4);
+            -webkit-transform: scaleY(0.4);
+        }
+
+        20% {
+            transform: scaleY(1.0);
+            -webkit-transform: scaleY(1.0);
+        }
+    }
+    /*modal animation start*/
+    .modal.fade .modal-dialog {
+        -webkit-transform: scale(0.1);
+        -moz-transform: scale(0.1);
+        -ms-transform: scale(0.1);
+        -o-transform: scale(0.1);
+        transform: scale(0.1);
+        top: 300px;
+        -ms-opacity: 0;
+        opacity: 0;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .modal.fade.in .modal-dialog {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -webkit-transform: translate3d(0, -300px, 0);
+        -o-transform: translate3d(0, -300px, 0);
+        transform: scale(1);
+        transform: translate3d(0, -300px, 0);
+        -ms-opacity: 1;
+        opacity: 1;
+    }
+    /*modal animation End*/
+</style>
+<script>
+    $.datepicker.setDefaults($.datepicker.regional["<%=System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName%>"]);
+    $.datepicker.setDefaults({ dateFormat: '<%=System.Configuration.ConfigurationManager.AppSettings["JSDateFormat"]%>' });
+</script>

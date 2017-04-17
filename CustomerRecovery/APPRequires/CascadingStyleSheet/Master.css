@@ -1,0 +1,195 @@
+﻿.DashBoardChart > .panel-body {
+    height: 400px;
+    margin: 0 auto;
+}
+
+.SideMenu {
+    left: 0;
+    padding-right: 0px;
+    position: fixed;
+    top: 56px;
+    width: 250px;
+    bottom: 0px;
+    z-index: 1;
+    background-color: #00a0af;
+    /*overflow-y: scroll;*/
+}
+
+.modal-header {
+    color: #E91E63 !important;
+    font-weight: bold !important;
+}
+/*tr, table.google-visualization-table-table .google-visualization-table-tr-head, table.google-visualization-table-table .google-visualization-table-tr-even, table.google-visualization-table-table .google-visualization-table-tr-odd {
+    background: url(../Images/AndroidL.png) center fixed !important;
+    background:-webkit-linear-gradient(url(../Images/AndroidL.png) 100% 100% center fixed !important);
+}*/
+
+.devsite-top-logo-row-wrapper, .SideMenu, .page-header { /*.modal-header,*/
+    background: url(../Images/AndroidL.png) center fixed !important;
+    background:-webkit-linear-gradient(url(../Images/AndroidL.png) 100% 100% center fixed !important);
+}
+
+ul {
+    list-style-type: none;
+}
+
+#SideMenuFirstUL {
+    display: block;
+}
+
+    #SideMenuFirstUL > li > a {
+        text-decoration: none;
+        color: black;
+        padding: 10px 15px;
+        display: block;
+    }
+
+        #SideMenuFirstUL > li > a > span {
+            text-align: center;
+            float: right;
+        }
+
+        #SideMenuFirstUL > li > a:hover {
+            background-color: #00909E;
+            color: white;
+            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22) !important;
+            cursor: pointer;
+        }
+
+    #SideMenuFirstUL > li > ul > li:hover {
+        background-color: #00909E;
+        color: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+        cursor: pointer;
+    }
+
+    #SideMenuFirstUL > li > ul > li > a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #SideMenuFirstUL > li > ul > li {
+        color: #fff;
+        padding: 5px 0px 5px 36px;
+    }
+
+.WorkingArea {
+    padding: 56px 0px 0px 0px;
+    margin-left: 250px;
+}
+
+#SideMenuToggleBtn {
+    bottom: 0px;
+    margin-top: 4px;
+    display: none;
+    color: white;
+    cursor: pointer;
+    font-size: 21px;
+}
+
+    .devsite-avatar:hover,
+    #SideMenuToggleBtn:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+        cursor: pointer;
+    }
+
+
+
+#AtharvanaWebSite:hover {
+    background-color: #00a0af;
+}
+
+a:hover, a:active, a:focus {
+    border: 0;
+    outline: none;
+    color: #E91E63 !important;
+    font-weight: bold !important;
+}
+
+.page-header > h3 {
+    margin: 0px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: #E91E63;
+}
+
+table, .SEARCH_BOX, .LBLACTIVE, .LBLINACTIVE, .page-header {
+    /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+    /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+    /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
+}
+
+    .SEARCH_BOX:focus, .SideMenu {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23) !important;
+    }
+
+.page-header {
+    height: 57px !important;
+    padding-top: 9px;
+    margin-top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background-color: white;
+    border-bottom: 0px !important;
+}
+
+.circle:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+}
+
+.circle {
+    color: white !important;
+    border-radius: 50% !important;
+    text-align: center !important;
+    font-size: 20px !important;
+    line-height: 0 !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+    background-color: #E91E63 !important;
+}
+
+div.PagePanelBody {
+    margin-top: 50px;
+}
+
+table > thead > tr > th:hover, .modal-dialog {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22) !important;
+}
+
+.modal-header, .devsite-avatar {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+}
+
+input:focus, select:focus, textarea:focus, .btn:focus {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22) !important;
+}
+
+.EDIT-ICON:hover, .REMOVE-ICON:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+}
+
+.glyphicon {
+    position: static !important;
+}
+
+.form-group > div > .glyphicon {
+    position: absolute !important;
+}
+
+.modal {
+    top: 57px !important;
+}
+
+.modal-title {
+    font-weight:bold;
+}
+
+.ui-datepicker-month, .ui-datepicker-year {
+    padding: 5px !important;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    right: 40px !important;
+}
